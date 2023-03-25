@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsTimer(BarakaKinywa)</title>
+</head>
+
+<body>
+    <div>
+        <p id="timer">0</p>
+        <button id="start-btn">Start</button>
+        <button id="stop-btn">Stop</button>
+    </div>
+    <script>
+        let timerInterval;
+        let count = 0;
+        const timer = document.getElementById('timer');
+        const startButton = document.getElementById('start-btn');
+        const stopButton = document.getElementById('stop-btn');
+
+        startButton.addEventListener('click', function () {
+            // Clear any previous intervals
+            clearInterval(timerInterval);
+
+            // Start timer
+            timerInterval = setInterval(() => {
+                count++;
+                timer.innerHTML = count;
+            }, 1000);
+        });
+
+        stopButton.addEventListener('click', function () {
+            // Clear timer interval
+            clearInterval(timerInterval);
+
+            // Reset count and display
+            count = 0;
+            timer.innerHTML = count;
+        });
+
+    </script>
+</body>
+
+</html>
